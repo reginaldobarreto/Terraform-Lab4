@@ -4,5 +4,13 @@
 # Create a resource group
 resource "azurerm_resource_group" "rg" {
   name     = var.resource_group_name
-  location = var.location
+  location = join(" ", var.location)
+}
+
+# Create a virtual network
+resource "azurerm_virtual_network" "vnetdefault" {
+  name                = var.virtual_network_name
+  address_space       = [element(var.address_space_choice, 3)]
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
 }

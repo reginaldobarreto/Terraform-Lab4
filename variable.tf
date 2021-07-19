@@ -8,3 +8,15 @@ variable "resource_group_name" {
 variable "location" {
   default = "East US"
 }
+
+variable "virtual_network_name" {
+  default = "Vnet-No_Name"
+}
+
+variable "environment" {
+  default = "Environment"
+}
+
+variable "address_space_choice" {
+
+}
